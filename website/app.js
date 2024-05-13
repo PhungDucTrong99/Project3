@@ -1,6 +1,4 @@
-/* Global Variables */
 
-// Create a new date instance dynamically with JS
 document.addEventListener("DOMContentLoaded", () => {
   const getDate = () => {
     const d = new Date();
