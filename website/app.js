@@ -1,22 +1,21 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const getDate = () => {
     const d = new Date();
     return `${d.getMonth() + 1}.${d.getDate()}.${d.getFullYear()}`;
   };
 
-  let baseURL = "https://api.openweathermap.org/data/2.5/forecast?zip=";
-  let apiKey = "&appid=153b4d66f3a0171a79c72c9fac2034cf";
-
   let button = document.getElementById("generate");
   button.addEventListener("click", async function (event) {
     event.preventDefault();
-
+    const baseURL = "https://api.openweathermap.org/data/2.5/forecast?zip=";
+    const apiKey = "153b4d66f3a0171a79c72c9fac2034cf";
     let zip = document.getElementById("zip").value;
+
+    const urlAPI = `${baseURL}${zip}&appid=${apiKey}`;
 
     let feelings = document.getElementById("feelings").value;
 
-    getWeather(baseURL, zip, apiKey).then(function (data) {
+    getWeather(urlAPI).then(function (data) {
       console.log("data", data);
       const newDate = getDate();
       postData("/add", {
@@ -42,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const getWeather = async (baseURL, zip, key) => {
-    const res = await fetch(baseURL + zip + key);
+  const getWeather = async (urlAPI) => {
+    const res = await fetch(urlAPI);
     try {
       const data = await res.json();
       return data;
