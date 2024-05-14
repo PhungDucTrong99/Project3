@@ -3,4 +3,4 @@
 To get started developing right away:
 
 - Install all project dependencies with `npm install`
-- Start the development server with `node app.js`
+- Start the development server with `node server.js`
