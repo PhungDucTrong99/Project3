@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", async function (event) {
     event.preventDefault();
     const baseURL = "https://api.openweathermap.org/data/2.5/forecast?zip=";
-    const apiKey = "153b4d66f3a0171a79c72c9fac2034cf";
+    const apiKey = "153b4d66f3a0171a79c72c9fac2034cf&units=imperial";
     let zip = document.getElementById("zip").value;
 
     const urlAPI = `${baseURL}${zip}&appid=${apiKey}`;
